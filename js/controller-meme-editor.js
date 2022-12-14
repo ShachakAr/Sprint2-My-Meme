@@ -20,6 +20,8 @@ function renderMeme(imgId){
     const {img, lines} = getMeme()
     console.log('img :>> ', img);
     renderImg(img)
+    console.log('lines :>> ', lines);
+    // renderTextInput(lines)
 }
 
 function renderImg(img) {
@@ -47,64 +49,4 @@ function addTouchListeners() {
 }
 
 
-// function onMove(ev) {
-//     const pos = getEvPos(ev)
-//     if (isSizingClicked(pos)) gElCanvas.style.cursor = 'se-resize'
-//     else if (getLineClickHover(pos)) {
-//         gElCanvas.style.cursor = 'grab'
-//         renderMeme()
-//     }
-//     else if (findStickerIdx(pos)) {
-//         gElCanvas.style.cursor = 'grab'
-//         renderMeme()
-//     }
-//     else gElCanvas.style.cursor = 'auto'
-//     const isDrag = gCurrDrag ? gCurrDrag.isDrag : false
-//     if (isDrag) {
-//         const dx = pos.x - gStartPos.x
-//         const dy = pos.y - gStartPos.y
-//         moveShape(dx, dy)
-//         gStartPos = pos
-//         renderMeme()
-//     } if (gIsSizing) {
-//         const dx = pos.x - gStartPos.x
-//         const dy = pos.y - gStartPos.y
-//         sizeObj(dx, dy)
-//         gStartPos = pos
-//         renderMeme()
-//     }
-// }
 
-// function onDown(ev) {
-//     const pos = getEvPos(ev)
-//     gStartPos = pos
-
-//     gIsSizing = isSizingClicked(pos)
-//     if (gIsSizing) {
-//     return
-//     }
-
-//     if (findStickerIdx(pos)) {
-//         gCurrDrag = findStickerIdx(pos)
-//         gCurrDrag.isDrag = true
-//         return
-//     }
-//     else if (getLineClickHover(pos)) {
-//         gCurrDrag = getLineClickHover(pos)
-//         gCurrDrag.isDrag = true
-//         return
-//     }
-
-//     gLineIsSelected = false
-//     gStickerIsSelected = false
-//     renderMeme()
-
-
-
-// }
-
-// function onUp() {
-//     gIsSizing = false
-//     if (!gCurrDrag) return
-//     gCurrDrag.isDrag = false
-// }
