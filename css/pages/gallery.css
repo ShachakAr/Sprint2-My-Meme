@@ -1,0 +1,33 @@
+/* gallery images */
+.gallery-image-section {
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.main-gallery {
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    border-radius: 10px;
+    width: 95%;
+    height: 63vh;
+}
+
+.main-gallery>* {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.main-gallery>*:hover {
+    scale: 1.05;
+}
+
+
+
+
+
+

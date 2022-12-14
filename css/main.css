@@ -1,0 +1,17 @@
+/* VAR SETTINGS */
+@import 'basics/variables.css';
+
+/* HELPERS */
+@import 'helpers/helpers.css';
+
+/* BASE */
+@import 'basics/base.css';
+@import 'basics/header.css';
+
+/* GALLERY */
+@import 'pages/gallery.css';
+
+/* MEME'S EDITOR */
+@import 'pages/meme-editor.css'
+
+/* SAVED MEME'S */

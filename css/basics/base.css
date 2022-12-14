@@ -1,0 +1,50 @@
+
+/* BASE DEFENITIONS FOR THE ENTIRE APP */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    position: relative;
+    font-family: poppins, sans-serif;
+    color: var(--clr11);
+    background-color: var(--clr15);
+    z-index: -2;
+}
+
+.main-screen {
+    position: fixed;
+    inset: 0;
+    background-color: hsla(0, 0%, 11%, 0.6);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--clr11);
+}
+
+.btn {
+    border-radius: 2em;
+    background-color: var(--clr11);
+    background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+    box-shadow: 0 3px 6px 1px rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+}
+
+
+/* 
+body>*:not(.full) {
+    margin: auto;
+    margin-top: 15px;
+} */
