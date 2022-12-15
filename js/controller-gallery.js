@@ -2,6 +2,7 @@
 
 function onInit(){
     renderGallery()
+    //TODO: render key words
 }
 
 function renderGallery(){
@@ -21,11 +22,23 @@ function onImgClick(elImg, imgId) {
     document.querySelector('.gallery').classList.add('hide')
     // show img editor
     document.querySelector('.main-editor-container').classList.remove('hide')
+    
     // change style in header
-    document.querySelector('.current-page-link').classList.remove('current-page-link')
+    // document.querySelector('.current-page-link').classList.remove('current-page-link')
     
     // sets gMeme with relevent img
     setNewgMemeImg(elImg, imgId)
     
     renderMeme()
+}
+
+function onGalleryClick(){
+    document.querySelector('.main-editor-container').classList.add('hide')
+    document.querySelector('.gallery').classList.remove('hide')
+    // document.querySelector('body').classList.remove('menu-open')
+
+    if(document.querySelector('.current-page-link'))
+    document.querySelector('.current-page-link').classList.remove('current-page-link')
+    document.querySelector('.nav-link.nav-gallery').classList.add('current-page-link')
+    
 }

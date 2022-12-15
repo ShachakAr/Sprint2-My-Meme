@@ -53,3 +53,88 @@ header .nav-link:hover {
     border-radius: 2em;
 }
 
+@media (max-width: 740px) {
+
+    header .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: hsla(0, 2%, 16%, 0.9);
+        height: 100vh;
+        border-inline-start: 1px solid rgba(204, 204, 204, 0.25);
+        min-width: 250px;
+        transform: translateX(100%);
+        transition: transform .6s, box-shadow .6s;
+        padding-top: 5.625rem;
+        z-index: 1;
+    }
+
+    header .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    body.menu-open .main-nav {
+        transform: translateX(0);
+        box-shadow: -9px 0px 14px rgb(0 0 0 / 30%);
+
+    }
+
+    header .main-nav ul li {
+        border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+        border-right: none;
+        border-left: none;
+        width: 100%;
+        min-height: 0;
+        box-shadow: none;
+        font-size: 1.5em;
+    }
+
+    header .main-nav ul>*:first-child {
+        border-top: 1px solid rgba(204, 204, 204, 0.3);
+    }
+
+    .main-nav ul a {
+        display: block;
+        padding: 18px;
+
+    }
+
+    .main-nav .current-page-link {
+        background-color: transparent;
+        font-family: poppins-semiBold;
+    }
+
+    ion-icon.menu-btn {
+        font-size: 1.5em;
+        color: var(--clr15);
+        /* background-color: black; */
+        border: 2px solid var(--clr15);
+        border-radius: 2em;
+        padding: 7px;
+        margin-inline-end: 7px;
+        cursor: pointer;
+    }
+
+
+    body.menu-open .main-screen {
+        opacity: 1;
+        pointer-events: auto;
+
+    }
+
+
+}
+
+@media (min-width: 1000px){
+    
+    header.main-header {
+        margin: 20px 10px;
+    }
+    
+    header .logo {
+
+        font-size: 1.7em;
+    }
+
+}

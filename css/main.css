@@ -1,12 +1,16 @@
 /* VAR SETTINGS */
 @import 'basics/variables.css';
+@import 'basics/typography.css';
 
-/* HELPERS */
-@import 'helpers/helpers.css';
 
 /* BASE */
 @import 'basics/base.css';
 @import 'basics/header.css';
+
+/* HELPERS */
+@import 'helpers/helpers.css';
+@import 'helpers/helpers-tooltip.css';
+
 
 /* GALLERY */
 @import 'pages/gallery.css';

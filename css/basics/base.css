@@ -43,8 +43,21 @@ a {
 }
 
 
-/* 
+
 body>*:not(.full) {
     margin: auto;
     margin-top: 15px;
-} */
+}
+
+@media (min-width: 1000px){
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    body>*:not(.full) {
+        width: 95%;
+    }
+    
+}

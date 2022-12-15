@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,11 +16,11 @@
 <!-- TODO: 7. Add img objects -->
 
 <body onload="onInit()">
-     <!-- SCREEN -->
-     <div class="main-screen"></div>
+    <!-- SCREEN -->
+    <div class="main-screen"></div>
 
-     <!-- HEADER -->
-     <header class="main-header">
+    <!-- HEADER -->
+    <header class="main-header">
         <section class="header-content flex space-between align-center">
 
             <div class="logo">
@@ -31,55 +32,140 @@
             <nav class="main-nav">
                 <ul class="flex clean-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link nav-gallery current-page-link" onclick="onGalleryClick()">Gallery</a>
+                        <a href="#" class="nav-link nav-gallery current-page-link"
+                            onclick="onGalleryClick()">Gallery</a>
                     </li>
                     <li class="nav-item tooltip">
                         <a href="#" class="nav-link memes" onclick="onMemesClick()">Memes</a>
                     </li>
-                    
                 </ul>
             </nav>
             <ion-icon class="menu-btn" name="menu" onclick="onToggleMenu()"></ion-icon>
         </section>
     </header>
-    
+
     <!-- GALLERY -->
 
     <main class="gallery">
-        <header class="gallery-header flex flex-align-center">
-            <!-- Input search Bar -->
-            
-            <!-- Keywords -->    
+        <header class="gallery-header flex align-center">
+            <div class="search-bar flex align-center ">
+                <input type="search" class="search-input" oninput="onSetFilterByTxt(this.value)" placeholder="Try Funny, jQuery..." />
+                <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <section class="keywords-container">
+                <section class="keywords flex align-center justify-center"></section>
+                <div class="open-arrow move-down" onclick="onMoreKeywords(this)"><ion-icon name="caret-down"></ion-icon></div>
+            </section>
         </header>
 
         <section class="gallery-image-section">
             <div class="main-gallery center"></div>
         </section>
     </main>
-    
+
     <!-- MEME'S EDITOR -->
-    <main class="main-editor-container flex felx-col flex-align-center hide">
+    <main class="main-editor-container  hide">
         <div class="main-canvas-container">
             <canvas class="main-canvas" width="600px"></canvas>
         </div>
-        <section class="main-editor flex flex-col">
+        <section class="main-editor flex col">
 
             <label class="text-input">
-                <input type="text" class="mems-text" placeholder="Enter your text" oninput="onTextInput(event)">
+                <input type="text" class="mems-text" placeholder="Type your text" oninput="onTextInput(event)">
             </label>
 
-            <section class="text-editor">
-                <!-- TODO: add change size buttons -->
-                <!-- TODO: add font selection -->
-                <!-- TODO: add font selection -->
+            <section class="top-buttons">
+                <!-- Add line-->
+                <span class="add-line" title="Add Line" onclick="onAddLine()">
+                    <ion-icon name="add-outline"></ion-icon>
+                </span>
+                <!-- Switch line -->
+                <span class="switch" title="Switch Line" onclick="onSwitchLines()">
+                    <ion-icon name="swap-vertical-outline"></ion-icon>
+                </span>
+                <!-- Delete line -->
+                <span class="delete" title="Delete Line" onclick="onDeleteLine()">
+                    <ion-icon name="trash-bin-outline"></ion-icon>
+                </span>
+                <!-- Uplaod file -->
+                <span title="Upload File" class="file" onclick="document.querySelector('.file-input').click()">
+                    <ion-icon name="chevron-up-outline">
+                        <input type="file" class="file-input" oninput="onImgInput(event)">
+                    </ion-icon>
+                </span>
+
             </section>
 
+            <section class="text-editor">
+
+                <div class="editor-top flex justify-center">
+                    <!-- Increase Font -->
+                    <span class="" title="Increase Font" onclick="onIncreaseFont(true)">
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </span>
+                    <!-- Decrese font -->
+                    <span class="" onclick="onIncreaseFont(false)">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </span> 
+                    <!-- Align left -->
+                    <span class="" title="align Left" onclick="onAlignFont('left')">
+                        <i class="fa-solid fa-align-left"></i>
+                    </span>
+                    <!-- Align center -->
+                    <span class="" title="align Center" onclick="onAlignFont('center')">
+                        <i class="fa-solid fa-align-justify"></i>
+                    </span>
+                    <!-- Align right -->
+                    <span class="" title="align Right" onclick="onAlignFont('right')">
+                        <i class="fa-solid fa-align-right"></i>
+                    </span>
+                </div>
+
+                </div>
+                <!-- TODO: add font selection -->
+                <div class="editor-bottom flex justify-center">
+                    <!-- Font selection -->
+                    <select class="font-select" onchange="onSetFont()">
+                    select font
+                    </select>
+                    <!-- Stroke color -->
+                    <span class="color-picker" title="Stroke color"
+                        onclick="document.querySelector('.stroke-input').click()">
+                        <i class="fa-solid fa-s">
+                            <input type="color" name="strokeStyle" class="stroke-input" oninput="onColorInput(event)">
+                        </i>
+                    </span>
+                    <!-- Fill color -->
+                    <span class="color-picker" title="Select Color"
+                        onclick="document.querySelector('.fill-input').click()">
+                        <ion-icon name="color-palette-outline">
+                        </ion-icon>
+                        <input type="color" name="fillColor" class="fill-input" oninput="onColorInput(event)">
+                    </span>
+                </div>
+            </section>
+
+        </section>
+
+        <section class="stickers">
+            stickers
+        </section>
+
+        <section class="options">
+            share, download, save
         </section>
 
     </main>
 
     <!-- SAVED MEME'S -->
+    <main class="saved-mems-container hide"></main>
 
+    <!-- ICONS -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/c1a9d640c4.js" crossorigin="anonymous"></script>
+
+    <!-- JS -->
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/utils.js"></script>
     <script src="js/services/saved-service.js"></script>
