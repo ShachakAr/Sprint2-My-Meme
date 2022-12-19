@@ -10,17 +10,12 @@
     <title>My-meme</title>
 </head>
 
-<!-- TODO: 1. Setup controller-meme -->
-<!-- TODO: 2. Setup meme-service -->
-<!-- TODO: 6. Add keywords to gallery header -->
-<!-- TODO: 7. Add img objects -->
-
 <body onload="onInit()">
     <!-- SCREEN -->
-    <div class="main-screen"></div>
+    <div class="main-screen full" onclick="onToggleMenu()"></div>
 
     <!-- HEADER -->
-    <header class="main-header">
+    <header class="main-header full">
         <section class="header-content flex space-between align-center">
 
             <div class="logo">
@@ -48,13 +43,15 @@
 
     <main class="gallery">
         <header class="gallery-header flex align-center">
-            <div class="search-bar flex align-center ">
-                <input type="search" class="search-input" oninput="onSetFilterByTxt(this.value)" placeholder="Try Funny, jQuery..." />
+            <div class="search-bar flex align-center">
+                <input type="search" class="search-input" oninput="onSetFilterByTxt(this.value)"
+                    placeholder="Try Funny, baby..." />
                 <ion-icon name="search-outline"></ion-icon>
             </div>
             <section class="keywords-container">
                 <section class="keywords flex align-center justify-center"></section>
-                <div class="open-arrow move-down" onclick="onMoreKeywords(this)"><ion-icon name="caret-down"></ion-icon></div>
+                <div class="open-arrow move-down" onclick="onMoreKeywords(this)"><ion-icon name="caret-down"></ion-icon>
+                </div>
             </section>
         </header>
 
@@ -100,33 +97,35 @@
 
                 <div class="editor-top flex justify-center">
                     <!-- Increase Font -->
-                    <span class="" title="Increase Font" onclick="onIncreaseFont(true)">
+                    <span title="Increase Font" onclick="onIncreaseFont(true)">
                         <i class="fa-solid fa-arrow-up"></i>
                     </span>
                     <!-- Decrese font -->
-                    <span class="" onclick="onIncreaseFont(false)">
+                    <span title="Decrease Font" onclick="onIncreaseFont(false)">
                         <i class="fa-solid fa-arrow-down"></i>
-                    </span> 
+                    </span>
                     <!-- Align left -->
-                    <span class="" title="align Left" onclick="onAlignFont('left')">
+                    <span title="Align Left" onclick="onAlignFont('left')">
                         <i class="fa-solid fa-align-left"></i>
                     </span>
                     <!-- Align center -->
-                    <span class="" title="align Center" onclick="onAlignFont('center')">
+                    <span title="Align Center" onclick="onAlignFont('center')">
                         <i class="fa-solid fa-align-justify"></i>
                     </span>
                     <!-- Align right -->
-                    <span class="" title="align Right" onclick="onAlignFont('right')">
+                    <span title="Align Right" onclick="onAlignFont('right')">
                         <i class="fa-solid fa-align-right"></i>
                     </span>
                 </div>
 
-                </div>
-                <!-- TODO: add font selection -->
                 <div class="editor-bottom flex justify-center">
                     <!-- Font selection -->
                     <select class="font-select" onchange="onSetFont()">
-                    select font
+                        <option class="Impact" value="Impact">Impact</option>
+                        <option class="David" value="David">David</option>
+                        <option class="poppins" value="poppins-SemiBold">Poppins</option>
+                        <option class="cursive" value="cursive">Cursive</option>
+                        <option class="Verdana" value="Verdana">Verdana</option>
                     </select>
                     <!-- Stroke color -->
                     <span class="color-picker" title="Stroke color"
@@ -145,16 +144,29 @@
                 </div>
             </section>
 
-        </section>
+            <section class="stickers">
+                Coming Sooon - stickers 🎉 ❗
+            </section>
 
-        <section class="stickers">
-            stickers
-        </section>
+            <section class="bottom-buttons">
+                <a href="#" class="big-btn share" onclick="onShare()">
+                    <ion-icon class="share" name="share-social-outline"></ion-icon>
+                </a>
 
-        <section class="options">
-            share, download, save
-        </section>
+                <a href="#" class="big-btn save" onclick="onSaveMeme()">
+                    <ion-icon class="save" name="save-outline"></ion-icon>
+                </a>
 
+                <a href="#" class="big-btn download" onclick="onDownloadImg(this)" download="pukimeme.jpg">
+                    <ion-icon class="download" name="download-outline"></ion-icon>
+                </a>
+            </section>
+
+            <div class="share-msg">
+                <p class="user-msg"></p>
+                <div class="share-container"></div>
+            </div>
+        </section>
     </main>
 
     <!-- SAVED MEME'S -->

@@ -1,10 +1,56 @@
 'use strict'
 
 const gImages = _createImages()
+const gKeywords = getAllKeywords()
+const gKeywordCountMap = gKeywords.map(keyword => ({ keyword, count: getRandomInt(0, 4) }))
+const gSelectedKeywords = getSelectedKeywords()
+let gIsAllKeywords = false
 
 function getImages() {
     return gImages
 }
+
+function setFilterByTxt(txt) {
+    if (!txt) {
+        renderGallery()
+        return
+    }
+    const filteredImg = gImages.filter(img => img.keywords.find(keyword => {
+        return keyword.toLocaleLowerCase().includes(txt.toLowerCase())
+    }))
+    renderGallery(filteredImg)
+}
+
+// Returns the keywords extracted from the imgs
+function getAllKeywords() {
+    // Long string of img keywords
+    let keywords = gImages.map(img => img.keywords.join(' '))
+    //Join all the strs, and splits into single words
+    let uniqueList = keywords.join(' ').split(' ')
+    uniqueList = [...new Set(uniqueList)]
+    return uniqueList
+}
+
+function getSelectedKeywords() {
+    const keywords = [...gKeywordCountMap]
+    const selectedKeywords = []
+    for (let i = 0; i < 5; i++) {
+        selectedKeywords.push(keywords.splice(getRandomInt(0, keywords.length), 1)[0])
+    }
+    return selectedKeywords
+}
+
+function increaseCount(keyword) {
+    const keywordClicked = gKeywordCountMap.find(item => item.keyword === keyword)
+    if (keywordClicked.count < 7) keywordClicked.count++
+    pickKeywords()
+    setFilterByTxt(keyword)
+}
+
+function pickKeywords() {
+    if (gIsAllKeywords) renderKeywords(gKeywordCountMap)
+    else renderKeywords(gSelectedKeywords)
+} 
 
 function _createImages() {
     return [

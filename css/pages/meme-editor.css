@@ -91,7 +91,10 @@
 }
 
 .font-select {
-    /*  */
+    flex-basis: 40%;
+    font-size: 1.5em;
+    font-family: Impact, imImpact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-radius: 6px;
 }
 
 
